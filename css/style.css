@@ -79,12 +79,15 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
     display: flex;
+    flex-wrap: wrap; /* ✅ ยืดหยุ่นบนจอเล็ก */
     align-items: center;
+    justify-content: center;
     padding: 100px 20px 50px;
     background: linear-gradient(135deg, #f48fb1 0%, #f06292 100%);
     color: white;
+    width: 100%;
+    min-height: auto; /* ✅ ไม่ fix ที่ 100vh เพื่อให้สูงตามเนื้อหา */
 }
 
 .hero-content {
@@ -422,4 +425,25 @@ audio {
   border-radius: 8px;
   background-color: #f3f3f3;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;         /* ✅ เรียงแนวตั้งเมื่อแคบ */
+    text-align: center;
+    padding-top: 140px;             /* ✅ เว้นให้ navbar ไม่บัง */
+    min-height: auto;               /* ✅ ยืดหยุ่นความสูง */
+  }
+
+  .hero-image img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
 }
